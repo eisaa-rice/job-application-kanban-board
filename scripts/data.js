@@ -1,9 +1,3 @@
-// TODO: actually implement these counts lol
-export let appliedCount = 9;
-export let inProgressCount = 3;
-export let rejectedCount = 17;
-export let offerCount = 1;
-
 // export const applications = [
 //   {
 //     id: crypto.randomUUID(),

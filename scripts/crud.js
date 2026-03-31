@@ -1,5 +1,30 @@
 export let applications = [];
 
+// TODO: actually implement these counts lol
+export let appliedCount = 0;
+export let inProgressCount = 0;
+export let rejectedCount = 0;
+export let offerCount = 0;
+
+const countSections = () => {
+  appliedCount = 0;
+  inProgressCount = 0;
+  rejectedCount = 0;
+  offerCount = 0;
+
+  applications.forEach((application) => {
+    if (application.status === "apply") {
+      appliedCount += 1;
+    } else if (application.status === "progress") {
+      inProgressCount += 1;
+    } else if (application.status === "reject") {
+      rejectedCount += 1;
+    } else if (application.status === "offer") {
+      offerCount += 1;
+    }
+  });
+};
+
 export const readApplications = () => {
   const storedApplications = localStorage.getItem("applications");
   if (!storedApplications) return;
@@ -11,10 +36,14 @@ export const readApplications = () => {
     (application) =>
       (application.dateApplied = new Date(application.dateApplied)),
   );
+
+  countSections();
 };
 
 const setApplications = () => {
   localStorage.setItem("applications", JSON.stringify(applications));
+
+  countSections();
 };
 
 export const createApplication = (role, company) => {

@@ -3,6 +3,10 @@ import {
   createApplication,
   updateApplication,
   deleteApplication,
+  appliedCount,
+  inProgressCount,
+  offerCount,
+  rejectedCount,
 } from "./crud.js";
 
 // dom elements
@@ -64,6 +68,21 @@ export const renderApplications = () => {
 
     dropzone.appendChild(item);
   });
+
+  // render counts for each column
+  const appliedCountLabel = document.querySelector(`#apply .column__count`);
+  appliedCountLabel.textContent = appliedCount;
+
+  const inProgressCountLabel = document.querySelector(
+    `#progress .column__count`,
+  );
+  inProgressCountLabel.textContent = inProgressCount;
+
+  const rejectedCountLabel = document.querySelector(`#reject .column__count`);
+  rejectedCountLabel.textContent = rejectedCount;
+
+  const offerCountLabel = document.querySelector(`#offer .column__count`);
+  offerCountLabel.textContent = offerCount;
 };
 
 // open modal
