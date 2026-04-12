@@ -1,28 +1,32 @@
 /* TODO: clean all ts up */
 
 .container {
-  display: grid;
-  grid-template-columns: repeat(
-    4,
-    minmax(25rem, 1fr)
-  ); /* greater than min (left), smaller than max (right) */
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
   gap: var(--space-1);
 
-  padding: 3rem;
+  padding: var(--space-2);
 }
 
 .column {
-  background-color: var(--bg);
-
-  height: 82.5vh;
-
-  border-radius: var(--radius-xs);
+  flex: 1;
 
   padding: var(--space-z);
+
+  background-color: var(--bg);
+
+  border-radius: var(--radius);
 
   display: flex;
   flex-direction: column;
 }
+/* @media (width < 1500px) {
+  .container {
+    flex-direction: column;
+  }
+} */
 .column__header {
   display: flex;
   align-items: center;
@@ -38,38 +42,38 @@
   font-size: 1rem;
 }
 .column__description {
-  color: var(--text-accent);
+  color: var(--subtext);
   margin: var(--space-1) 0 var(--space-z) 0;
 }
 .column__count {
   border: var(--border);
-  border-radius: var(--radius-full);
+  border-radius: var(--circle);
 
   padding: 0.125rem 0.5rem;
 
-  color: var(--text-secondary);
+  color: var(--subtext);
 }
 .column__dot {
   width: 0.625rem;
   height: 0.625rem;
 
-  border-radius: var(--radius-full);
+  border-radius: var(--circle);
 }
 #apply .column__dot {
-  background-color: var(--accent-apply);
-  box-shadow: 0 1px 10px var(--accent-apply);
+  background-color: var(--apply);
+  box-shadow: 0 1px 10px var(--apply);
 }
 #progress .column__dot {
-  background-color: var(--accent-progress);
-  box-shadow: 0 1px 10px var(--accent-progress);
+  background-color: var(--progress);
+  box-shadow: 0 1px 10px var(--progress);
 }
 #reject .column__dot {
-  background-color: var(--accent-reject);
-  box-shadow: 0 1px 10px var(--accent-reject);
+  background-color: var(--reject);
+  box-shadow: 0 1px 10px var(--reject);
 }
 #offer .column__dot {
-  background-color: var(--accent-offer);
-  box-shadow: 0 1px 10px var(--accent-offer);
+  background-color: var(--offer);
+  box-shadow: 0 1px 10px var(--offer);
 }
 
 .dropzone {
@@ -77,7 +81,7 @@
 
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: var(--space-1);
 
   height: 100%;
 
@@ -87,12 +91,15 @@
 .item {
   background-color: white;
 
-  padding: 0.8rem;
-
-  cursor: grab; /* grabbing */
+  padding: var(--space-2);
 
   border: var(--border);
-  border-radius: var(--radius-xs);
+  border-radius: var(--radius);
+
+  cursor: grab;
+}
+.item:active {
+  cursor: grabbing; /* TODO: for some reason mouse is error symbol when dragging */
 }
 .item__details {
   display: flex;
@@ -121,7 +128,7 @@
 
   box-shadow: var(--shadow);
   border: var(--border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius);
 
   padding: var(--space-2);
 
@@ -132,13 +139,13 @@
   background-color: transparent;
   border: none;
 
-  color: var(--text-secondary);
+  color: var(--subtext);
 }
 .item__company {
-  color: var(--text-secondary);
+  color: var(--subtext);
 }
 .item__date {
-  color: var(--text-accent);
+  color: var(--subtext);
 
   font-size: 0.75rem;
 

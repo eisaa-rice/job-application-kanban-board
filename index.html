@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>job application kanban</title>
 
@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/styles/modal.css" />
 
     <script type="module" src="/scripts/app.js" defer></script>
+    <script type="module" src="/scripts/dragAndDrop.js" defer></script>
   </head>
 
   <!-- TODO: review at end to make sure all tags follow best semantic practices -->
@@ -32,7 +33,7 @@
           Postings you recently applied to but have yet to hear back from.
         </p>
 
-        <div class="dropzone"></div>
+        <ul class="dropzone"></ul>
       </section>
 
       <section id="progress" class="column">
@@ -51,7 +52,7 @@
           interviews.
         </p>
 
-        <div class="dropzone"></div>
+        <ul class="dropzone"></ul>
       </section>
 
       <section id="reject" class="column">
@@ -69,7 +70,7 @@
           Roles that have "unfortunately" not considered you or never responded.
         </p>
 
-        <div class="dropzone"></div>
+        <ul class="dropzone"></ul>
       </section>
 
       <section id="offer" class="column">
@@ -85,7 +86,7 @@
 
         <p class="column__description">This means you made it.</p>
 
-        <div class="dropzone"></div>
+        <ul class="dropzone"></ul>
       </section>
     </main>
 

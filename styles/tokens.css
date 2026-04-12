@@ -1,35 +1,27 @@
 :root {
-  /* typography */
-  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-
   /* TODO: condense all these colors and make sure they're all used and remove non-used ones */
 
   /* colors */
-  /* TODO: get rid of these first 3 fuckass colors lmao 😭 */
   --bg: rgb(250, 250, 255);
 
-  --text-main: rgb(0, 0, 0);
-  --text-secondary: rgb(55, 55, 55);
-  --text-accent: rgb(110, 110, 110);
+  --subtext: rgb(175, 175, 175);
 
-  --accent-apply: rgb(130, 130, 255);
-  --accent-progress: rgb(222, 184, 135);
-  --accent-reject: rgb(255, 130, 130);
-  --accent-offer: rgb(130, 255, 130);
+  --apply: rgb(130, 130, 255);
+  --progress: rgb(222, 184, 135);
+  --reject: rgb(255, 130, 130);
+  --offer: rgb(130, 255, 130);
 
   /* spacing */
   --space-1: 0.5rem;
   --space-2: 0.75rem;
+  /* TODO: fix these 3 lol */
   --space-z: 1rem;
-  --space-y: 1.5rem;
-  --space-x: 2rem;
+  --space-y: 1.25rem;
+  --space-x: 1.5rem;
 
   /* borders and shadows */
-  --radius-xs: 0.5rem;
-  --radius-sm: 0.75rem;
-  --radius-md: 1rem;
-  --radius-lg: 1.25rem;
-  --radius-full: 9999px;
+  --radius: 0.5rem;
+  --circle: 9999px;
 
   --border: 1px solid rgba(0, 0, 0, 0.15);
 

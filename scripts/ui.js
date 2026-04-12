@@ -42,7 +42,7 @@ export const renderApplications = () => {
   applications.forEach((application) => {
     const dropzone = document.querySelector(`#${application.status} .dropzone`);
 
-    const item = document.createElement("div");
+    const item = document.createElement("li");
     item.classList.add("item");
 
     item.dataset.id = application.id;
