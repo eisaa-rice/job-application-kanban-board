@@ -91,6 +91,8 @@
 .item {
   background-color: white;
 
+  list-style: none;
+
   padding: var(--space-2);
 
   border: var(--border);

@@ -1,14 +1,14 @@
 // https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API/Kanban_board
-const columns = document.querySelectorAll(".column");
-const items = document.querySelectorAll(".item");
 
+const items = document.querySelectorAll(".item");
 items.forEach((item) => {
   item.addEventListener("dragstart", (event) => {
-    item.id = item.dataset.id; // TODO: maybe change to a constant id, such as "active" or "dragged" or smth
+    item.id = "dragged-item";
 
     event.dataTransfer.effectAllowed = "move";
 
-    event.dataTransfer.setData("item", ""); // TODO: idk what this is
+    // custom data type
+    event.dataTransfer.setData("item", "");
   });
 
   item.addEventListener("dragend", (event) => {
@@ -19,3 +19,24 @@ items.forEach((item) => {
 const makePlaceholder = (draggedItem) => {};
 
 const movePlaceholder = (event) => {};
+
+const columns = document.querySelectorAll(".column");
+columns.forEach((column) => {
+  column.addEventListener("dragover", (event) => {
+    // check for custom data type
+    if (event.dataTransfer.types.includes("item")) {
+      // allow item to drop onto column
+      event.preventDefault();
+    }
+  });
+
+  column.addEventListener("drop", (event) => {
+    event.preventDefault();
+
+    const draggedItem = document.getElementById("dragged-item");
+
+    draggedItem.remove();
+
+    column.children[2].appendChild(draggedItem); // [div, p, ul]
+  });
+});
