@@ -3,11 +3,8 @@ import {
   createApplication,
   updateApplication,
   deleteApplication,
-  appliedCount,
-  inProgressCount,
-  offerCount,
-  rejectedCount,
 } from "./crud.js";
+import { renderCounts } from "./render.js";
 
 // dom elements
 const container = document.querySelector(".container"); // TODO: apparently it's possible to condense from 3 event listeners (kebab, edit, delete) down to 1
@@ -49,6 +46,20 @@ export const renderApplications = () => {
 
     item.setAttribute("draggable", "true");
 
+    // without these, new items can't be dragged and dropped
+    item.addEventListener("dragstart", (event) => {
+      item.id = "dragged-item";
+
+      event.dataTransfer.effectAllowed = "move";
+
+      // custom data type
+      event.dataTransfer.setData("item", "");
+    });
+
+    item.addEventListener("dragend", (event) => {
+      item.removeAttribute("id");
+    });
+
     item.innerHTML = `
     <div class="item__details">
       <h2 class="item__role">${application.role}</h2>
@@ -70,22 +81,9 @@ export const renderApplications = () => {
     `;
 
     dropzone.appendChild(item);
+
+    renderCounts();
   });
-
-  // render counts for each column
-  const appliedCountLabel = document.querySelector(`#apply .column__count`);
-  appliedCountLabel.textContent = appliedCount;
-
-  const inProgressCountLabel = document.querySelector(
-    `#progress .column__count`,
-  );
-  inProgressCountLabel.textContent = inProgressCount;
-
-  const rejectedCountLabel = document.querySelector(`#reject .column__count`);
-  rejectedCountLabel.textContent = rejectedCount;
-
-  const offerCountLabel = document.querySelector(`#offer .column__count`);
-  offerCountLabel.textContent = offerCount;
 };
 
 // open modal
