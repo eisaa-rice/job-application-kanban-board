@@ -125,7 +125,7 @@ submitButton.addEventListener("click", (event) => {
   if (modalMode === "create") {
     createApplication(role, company);
   } else if (modalMode === "update") {
-    updateApplication(applicationId, role, company);
+    updateApplication(applicationId, { role, company });
   }
 
   closeModal();

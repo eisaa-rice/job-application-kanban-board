@@ -22,6 +22,8 @@ const countSections = () => {
       offerCount += 1;
     }
   });
+
+  // TODO: need to trigger re-render
 };
 
 export const readApplications = () => {
@@ -39,7 +41,7 @@ export const readApplications = () => {
   countSections();
 };
 
-const setApplications = () => {
+const saveApplications = () => {
   localStorage.setItem("applications", JSON.stringify(applications));
 
   countSections();
@@ -54,20 +56,29 @@ export const createApplication = (role, company) => {
     status: "apply",
   });
 
-  setApplications();
+  saveApplications();
 };
 
-export const updateApplication = (applicationId, role, company) => {
+export const updateApplication = (applicationId, { role, company, status }) => {
   if (!applicationId) return;
 
   const application = applications.find((app) => app.id === applicationId);
 
   if (!application) return;
 
-  application.role = role;
-  application.company = company;
+  if (role) {
+    application.role = role;
+  }
 
-  setApplications();
+  if (company) {
+    application.company = company;
+  }
+
+  if (status) {
+    application.status = status;
+  }
+
+  saveApplications();
 };
 
 export const deleteApplication = (applicationId) => {
@@ -79,5 +90,5 @@ export const deleteApplication = (applicationId) => {
 
   applications.splice(indexToDelete, 1);
 
-  setApplications();
+  saveApplications();
 };

@@ -1,5 +1,7 @@
 // https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API/Kanban_board
 
+import { updateApplication } from "./crud.js";
+
 const items = document.querySelectorAll(".item");
 items.forEach((item) => {
   item.addEventListener("dragstart", (event) => {
@@ -36,6 +38,10 @@ columns.forEach((column) => {
     const draggedItem = document.getElementById("dragged-item");
 
     draggedItem.remove();
+
+    const draggedItemId = draggedItem.dataset.id;
+
+    updateApplication(draggedItemId, { status: column.id });
 
     column.children[2].appendChild(draggedItem); // [div, p, ul]
   });
