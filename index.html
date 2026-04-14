@@ -13,10 +13,9 @@
 
     <script type="module" src="/scripts/ui/render.js" defer></script>
     <script type="module" src="/scripts/ui/dragAndDrop.js" defer></script>
-    <script type="module" src="/scripts/ui/modal.js" defer></script>
+    <script type="module" src="/scripts/ui/menus.js" defer></script>
   </head>
 
-  <!-- TODO: review at end to make sure all tags follow best semantic practices -->
   <body>
     <main class="container">
       <section id="apply" class="column">
@@ -24,7 +23,7 @@
           <div class="column__title-group">
             <div class="column__dot"></div>
 
-            <h1 class="column__title">Applied</h1>
+            <h2 class="column__title">Applied</h2>
           </div>
 
           <p class="column__count">0</p>
@@ -42,7 +41,7 @@
           <div class="column__title-group">
             <div class="column__dot"></div>
 
-            <h1 class="column__title">In Progress</h1>
+            <h2 class="column__title">In Progress</h2>
           </div>
 
           <p class="column__count">0</p>
@@ -61,7 +60,7 @@
           <div class="column__title-group">
             <div class="column__dot"></div>
 
-            <h1 class="column__title">Rejected</h1>
+            <h2 class="column__title">Rejected</h2>
           </div>
 
           <p class="column__count">0</p>
@@ -79,7 +78,7 @@
           <div class="column__title-group">
             <div class="column__dot"></div>
 
-            <h1 class="column__title">Offer</h1>
+            <h2 class="column__title">Offer</h2>
           </div>
 
           <p class="column__count">0</p>
@@ -91,30 +90,22 @@
       </section>
     </main>
 
-    <button id="create-button">+</button>
+    <button id="create-button" type="button">+</button>
 
-    <div id="modal">
+    <div id="modal" hidden>
       <div class="modal__content">
         <div class="modal__header">
-          <p class="modal__title">Title</p>
+          <h2 class="modal__title">Title</h2>
 
-          <button class="modal__close-button">×</button>
+          <button class="modal__close-button" type="button">×</button>
         </div>
 
         <form class="modal__form">
-          <input
-            class="modal__input"
-            name="role"
-            placeholder="Role name"
-            required
-          />
+          <label for="role">Role name</label>
+          <input id="role" class="modal__input" name="role" required />
 
-          <input
-            class="modal__input"
-            name="company"
-            placeholder="Company"
-            required
-          />
+          <label for="company">Company</label>
+          <input id="company" class="modal__input" name="company" required />
 
           <button class="modal__submit-button" type="submit">Save</button>
         </form>

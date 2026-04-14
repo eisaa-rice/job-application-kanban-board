@@ -22,8 +22,6 @@ const countSections = () => {
       offerCount += 1;
     }
   });
-
-  // TODO: need to trigger re-render
 };
 
 export const readApplications = () => {

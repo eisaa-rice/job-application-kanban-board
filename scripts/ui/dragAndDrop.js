@@ -3,21 +3,18 @@
 import { updateApplication } from "../crud.js";
 import { renderCounts } from "./render.js";
 
-const items = document.querySelectorAll(".item");
-items.forEach((item) => {
+export const addDragListeners = (item) => {
   item.addEventListener("dragstart", (event) => {
     item.id = "dragged-item";
 
     event.dataTransfer.effectAllowed = "move";
-
-    // custom data type
-    event.dataTransfer.setData("item", ""); // value doesn't matter, we're just checking for the existence of the type
+    event.dataTransfer.setData("item", "");
   });
 
-  item.addEventListener("dragend", (event) => {
+  item.addEventListener("dragend", () => {
     item.removeAttribute("id");
   });
-});
+};
 
 const columns = document.querySelectorAll(".column");
 columns.forEach((column) => {
