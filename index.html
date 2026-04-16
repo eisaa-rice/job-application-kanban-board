@@ -17,9 +17,10 @@
   </head>
 
   <body>
-    <main class="container">
+    <!-- kanban board -->
+    <main class="kanban">
       <section id="apply" class="column">
-        <div class="column__header">
+        <header class="column__header">
           <div class="column__title-group">
             <div class="column__dot"></div>
 
@@ -27,7 +28,7 @@
           </div>
 
           <p class="column__count">0</p>
-        </div>
+        </header>
 
         <p class="column__description">
           Postings you recently applied to but have yet to hear back from.
@@ -37,7 +38,7 @@
       </section>
 
       <section id="progress" class="column">
-        <div class="column__header">
+        <header class="column__header">
           <div class="column__title-group">
             <div class="column__dot"></div>
 
@@ -45,7 +46,7 @@
           </div>
 
           <p class="column__count">0</p>
-        </div>
+        </header>
 
         <p class="column__description">
           Jobs where you have upcoming phone screenings, online assessments, or
@@ -56,7 +57,7 @@
       </section>
 
       <section id="reject" class="column">
-        <div class="column__header">
+        <header class="column__header">
           <div class="column__title-group">
             <div class="column__dot"></div>
 
@@ -64,7 +65,7 @@
           </div>
 
           <p class="column__count">0</p>
-        </div>
+        </header>
 
         <p class="column__description">
           Roles that have "unfortunately" not considered you or never responded.
@@ -74,7 +75,7 @@
       </section>
 
       <section id="offer" class="column">
-        <div class="column__header">
+        <header class="column__header">
           <div class="column__title-group">
             <div class="column__dot"></div>
 
@@ -82,7 +83,7 @@
           </div>
 
           <p class="column__count">0</p>
-        </div>
+        </header>
 
         <p class="column__description">This means you made it.</p>
 
@@ -90,26 +91,28 @@
       </section>
     </main>
 
+    <!-- floating action button -->
     <button id="create-button" type="button">+</button>
 
-    <div id="modal">
+    <!-- modal -->
+    <dialog id="modal">
       <div class="modal__content">
-        <div class="modal__header">
-          <h2 class="modal__title">Title</h2>
+        <header class="modal__header">
+          <h2 class="modal__title">Modal Title</h2>
 
           <button class="modal__close-button" type="button">×</button>
-        </div>
+        </header>
 
         <form class="modal__form">
-          <label for="role">Role name</label>
+          <label for="role">Role name:</label>
           <input id="role" class="modal__input" name="role" required />
 
-          <label for="company">Company</label>
+          <label for="company">Company:</label>
           <input id="company" class="modal__input" name="company" required />
 
           <button class="modal__submit-button" type="submit">Save</button>
         </form>
       </div>
-    </div>
+    </dialog>
   </body>
 </html>
