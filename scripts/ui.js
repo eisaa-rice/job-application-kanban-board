@@ -3,7 +3,7 @@ import {
   createApplication,
   updateApplication,
   deleteApplication,
-} from "../crud.js";
+} from "./crud.js";
 import { renderItems } from "./render.js";
 
 // modal
@@ -25,12 +25,10 @@ const closeModal = () => {
 
 const createButton = document.getElementById("create-button");
 createButton.addEventListener("click", () => {
-  const modal = document.getElementById("modal");
-
   const modalTitle = document.querySelector(".modal__title");
   modalTitle.textContent = "New Application";
 
-  const modalForm = modal.querySelector(".modal__form");
+  const modalForm = document.querySelector(".modal__form");
   delete modalForm.dataset.applicationId;
   modalForm.reset();
 
@@ -40,7 +38,7 @@ createButton.addEventListener("click", () => {
 const closeButton = document.querySelector(".modal__close-button");
 closeButton.addEventListener("click", closeModal);
 
-const modalForm = modal.querySelector(".modal__form");
+const modalForm = document.querySelector(".modal__form");
 modalForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
@@ -65,25 +63,25 @@ modalForm.addEventListener("submit", (event) => {
   renderItems();
 });
 
-// kebab
-export const addKebabListeners = (item) => {
+// item menu
+export const addMenuListeners = (item) => {
   // open kebab menu
   const itemButton = item.querySelector(".item__button");
-  const itemOptions = item.querySelector(".item__options");
+  const itemMenu = item.querySelector(".item__menu");
 
   itemButton.addEventListener("click", () => {
     // close all other menus
-    document.querySelectorAll(".item__options").forEach((menu) => {
-      if (menu !== itemOptions) {
+    document.querySelectorAll(".item__menu").forEach((menu) => {
+      if (menu !== itemMenu) {
         menu.style.display = "none";
       }
     });
 
     // toggle current menu
-    if (itemOptions.style.display === "none") {
-      itemOptions.style.display = "flex";
+    if (itemMenu.style.display === "none") {
+      itemMenu.style.display = "flex";
     } else {
-      itemOptions.style.display = "none";
+      itemMenu.style.display = "none";
     }
   });
 
@@ -106,13 +104,13 @@ export const addKebabListeners = (item) => {
     const modalTitle = document.querySelector(".modal__title");
     modalTitle.textContent = "Update Application";
 
-    const modalForm = modal.querySelector(".modal__form");
+    const modalForm = document.querySelector(".modal__form");
     modalForm.dataset.applicationId = applicationId;
 
     openModal();
 
-    const itemOptions = item.querySelector(".item__options");
-    itemOptions.style.display = "none";
+    const itemMenu = item.querySelector(".item__menu");
+    itemMenu.style.display = "none";
   });
 
   // delete application

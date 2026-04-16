@@ -5,7 +5,7 @@ export let inProgressCount = 0;
 export let rejectedCount = 0;
 export let offerCount = 0;
 
-const countSections = () => {
+const recalculateCounts = () => {
   appliedCount = 0;
   inProgressCount = 0;
   rejectedCount = 0;
@@ -36,14 +36,14 @@ export const readApplications = () => {
       (application.dateApplied = new Date(application.dateApplied)),
   );
 
-  countSections();
+  recalculateCounts();
 };
 readApplications();
 
 const saveApplications = () => {
   localStorage.setItem("applications", JSON.stringify(applications));
 
-  countSections();
+  recalculateCounts();
 };
 
 export const createApplication = (role, company) => {

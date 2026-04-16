@@ -1,11 +1,11 @@
-import { applications } from "../crud.js";
 import {
+  applications,
   appliedCount,
   inProgressCount,
   offerCount,
   rejectedCount,
-} from "../crud.js";
-import { addKebabListeners } from "./menus.js";
+} from "./crud.js";
+import { addMenuListeners } from "./ui.js";
 import { addDragListeners } from "./dragAndDrop.js";
 
 export const renderCounts = () => {
@@ -51,7 +51,7 @@ export const renderItems = () => {
 
       <button class="item__button" type="button">⁝</button>
 
-      <div class="item__options" style="display: none;">
+      <div class="item__menu" style="display: none;">
         <button class="item__update-button" type="button">✏️ Edit</button>
 
         <button class="item__delete-button" type="button">🗑️ Delete</button>
@@ -66,14 +66,14 @@ export const renderItems = () => {
     `;
 
     // attach event listeners
-    addKebabListeners(item);
+    addMenuListeners(item);
 
     addDragListeners(item);
 
     // render onto page
     dropzone.appendChild(item);
-
-    renderCounts();
   });
 };
 renderItems();
+
+renderCounts();

@@ -1,6 +1,6 @@
 // https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API/Kanban_board
 
-import { updateApplication } from "../crud.js";
+import { updateApplication } from "./crud.js";
 import { renderCounts } from "./render.js";
 
 export const addDragListeners = (item) => {
@@ -35,7 +35,7 @@ columns.forEach((column) => {
 
     updateApplication(draggedItemId, { status: column.id });
 
-    column.children[2].appendChild(draggedItem); // [div, p, ul]
+    column.querySelector(".dropzone").appendChild(draggedItem);
 
     renderCounts();
   });
