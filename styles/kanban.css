@@ -7,13 +7,13 @@
   justify-content: center;
   gap: var(--space-1);
 
-  padding: var(--space-2);
+  padding: var(--space-1);
 }
 
 .column {
   flex: 1;
 
-  padding: var(--space-z);
+  padding: var(--space-2);
 
   background-color: var(--bg);
 
@@ -30,7 +30,7 @@
 .column__title-group {
   display: flex;
   align-items: center;
-  gap: var(--space-z);
+  gap: var(--space-2);
 }
 .column__title {
   font-weight: 600;
@@ -38,7 +38,7 @@
 }
 .column__description {
   color: var(--subtext);
-  margin: var(--space-1) 0 var(--space-z) 0;
+  margin: var(--space-1) 0 var(--space-2) 0;
 }
 .column__count {
   border: var(--border);
@@ -88,7 +88,7 @@
 
   list-style: none;
 
-  padding: var(--space-2);
+  padding: var(--space-1);
 
   border: var(--border);
   border-radius: var(--radius);
@@ -127,7 +127,7 @@
   border: var(--border);
   border-radius: var(--radius);
 
-  padding: var(--space-2);
+  padding: var(--space-1);
 
   background-color: white;
 }

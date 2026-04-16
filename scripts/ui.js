@@ -7,20 +7,20 @@ import {
 import { renderItems } from "./render.js";
 
 // modal
+
 const openModal = () => {
   const modal = document.getElementById("modal");
-
-  modal.style.display = "flex";
+  modal.showModal();
 };
 
 const closeModal = () => {
   const modal = document.getElementById("modal");
-
   const modalForm = modal.querySelector(".modal__form");
+
   delete modalForm.dataset.applicationId;
   modalForm.reset();
 
-  modal.style.display = "none";
+  modal.close();
 };
 
 const createButton = document.getElementById("create-button");
