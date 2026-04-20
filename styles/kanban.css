@@ -1,13 +1,9 @@
-/* TODO: clean all ts up */
-
 .kanban {
   min-height: 100vh;
-  /* TODO: fix, can't see entire board on mobile */
-  max-width: 100vw;
+
   overflow-x: auto;
 
   display: flex;
-  justify-content: center;
   gap: var(--space-1);
 
   padding: var(--space-1);
@@ -15,6 +11,8 @@
 
 .column {
   flex: 1;
+
+  min-width: 20rem;
 
   padding: var(--space-2);
 
@@ -94,8 +92,6 @@
 
 .item {
   background-color: white;
-
-  min-width: 20rem;
 
   list-style: none;
 
