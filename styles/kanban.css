@@ -25,24 +25,29 @@
   display: flex;
   flex-direction: column;
 }
+
 .column__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
 .column__title-group {
   display: flex;
   align-items: center;
   gap: var(--space-2);
 }
+
 .column__title {
   font-weight: 600;
   font: var(--title);
 }
+
 .column__description {
   color: var(--subtext);
   margin: var(--space-1) 0 var(--space-2) 0;
 }
+
 .column__count {
   border: var(--border);
   border-radius: var(--radius);
@@ -51,6 +56,7 @@
 
   color: var(--subtext);
 }
+
 .column__dot {
   width: 0.625rem;
   height: 0.625rem;
@@ -84,4 +90,86 @@
   height: 100%;
 
   scrollbar-width: none;
+}
+
+.item {
+  background-color: white;
+
+  min-width: 20rem;
+
+  list-style: none;
+
+  padding: var(--space-1);
+
+  border: var(--border);
+  border-radius: var(--radius);
+}
+.item:hover {
+  cursor: grab;
+  border-color: black;
+}
+.item:active {
+  cursor: grabbing;
+  border-color: var(--backdrop);
+}
+
+.item__details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: relative;
+}
+
+.item__button {
+  background: transparent;
+  border: none;
+}
+.item__button:hover {
+  font-weight: bold;
+}
+
+.item__menu {
+  position: absolute;
+  right: 0%;
+  top: 105%;
+  z-index: 50;
+
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: var(--space-1);
+
+  box-shadow: var(--shadow);
+  border: var(--border);
+  border-radius: var(--radius);
+
+  padding: var(--space-1);
+
+  background-color: white;
+}
+.item__menu:hover {
+  cursor: default;
+}
+
+.item__menu button {
+  background-color: transparent;
+  border: none;
+
+  color: var(--subtext);
+}
+.item__menu button:hover {
+  color: black;
+}
+
+.item__company {
+  color: var(--subtext);
+}
+
+.item__date {
+  color: var(--subtext);
+
+  font-size: 0.75rem;
+
+  margin-top: 1ch;
 }

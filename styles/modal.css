@@ -1,4 +1,22 @@
-/* TODO: ai generated styling, review and clean up */
+#create-button {
+  background-color: white;
+
+  position: fixed;
+  bottom: 2.5rem;
+  right: 2.5rem;
+
+  height: 2.5rem;
+  width: 2.5rem;
+
+  font-size: 1.5rem;
+
+  border: var(--border);
+  border-radius: var(--radius);
+}
+#create-button:hover {
+  border-color: black;
+}
+
 #modal {
   border: none;
   box-shadow: var(--shadow);
@@ -40,13 +58,16 @@
 
   background-color: white;
 }
+.modal__close-button:hover {
+  border-color: black;
+}
 
 .modal__form {
   display: flex;
   flex-direction: column;
   gap: var(--space-1);
 
-  margin-top: var(--space-3);
+  margin-top: var(--space-1);
 }
 
 .modal__input {
@@ -59,7 +80,7 @@
   outline: none;
 }
 .modal__input:focus {
-  /* TODO */
+  border-color: black;
 }
 
 .modal__submit-button {
@@ -68,6 +89,15 @@
 
   background-color: var(--bg);
 
-  border: none;
+  border: var(--border);
+  border-radius: var(--radius);
+}
+.modal__submit-button:hover {
+  margin-top: var(--space-1);
+  padding: var(--space-1) var(--space-2);
+
+  background-color: var(--bg);
+
+  border-color: black;
   border-radius: var(--radius);
 }
