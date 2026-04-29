@@ -12,7 +12,7 @@ this app lets you create, update, and delete job applications, and move them bet
 
 ### 📚 tech stack
 
-- html
+- hypertext markup language
 - cascading style sheets
 - javascript
 
