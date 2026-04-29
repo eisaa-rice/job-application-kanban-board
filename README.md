@@ -18,7 +18,7 @@ this app lets you create, update, and delete job applications, and move them bet
 
 ### ❔how it works
 
-applications are stored in localstorage and loaded on page refresh. each application has an id, role, company, date, and status.
+applications are stored in localstorage and loaded on page refresh. each application has an `id`, `role`, `company`, `date`, and `status`.
 
 rendering is handled manually by rebuilding the dom when changes occur, and drag-and-drop updates both the ui and underlying data.
 
