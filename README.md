@@ -1,6 +1,6 @@
 # 📄 job application kanban board
 
-a simple kanban-style job application tracker built with raw html, css, and javascript.
+a kanban-style job application tracker built with raw html, css, and javascript.
 
 ![full board screenshot](<j a k b.png>)
 
